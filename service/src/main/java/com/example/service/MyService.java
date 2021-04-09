@@ -2,16 +2,11 @@ package com.example.service;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Binder;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.util.Log;
-
-import java.util.Map;
-
-import aidl.MyAIDLService;
 
 public class MyService extends Service {
+    int  count = 0 ;
 
     @Override
     public void onCreate() {
@@ -40,8 +35,18 @@ public class MyService extends Service {
         @Override
         public String getString() throws RemoteException {
             String string = "我是从服务起返回的";
-
             return string;
+        }
+
+        @Override
+        public String getAddStr() throws RemoteException {
+            count ++;
+            return String.valueOf(count);
+        }
+
+        @Override
+        public  UserBean getUser() throws RemoteException {
+            return new UserBean("张三",20,1);
         }
     }
 
