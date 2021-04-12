@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.administrator.servicetestaidl.R;
 
-public class MainActivity extends Activity {
+public class CheckActivity extends Activity {
 
     private Button bindService,unbindService,addBtn,getUserName;
     private Button btn1,btn2,btn3;
@@ -58,23 +58,11 @@ public class MainActivity extends Activity {
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent( MainActivity.this,InputActivity.class));
+
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent( MainActivity.this,InputActivity.class));
-            }
-        });
 
-        btn3.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent( MainActivity.this,InputActivity.class));
-            }
-        });
 
 
         tvData = (TextView) findViewById(R.id.tv_data);
@@ -84,7 +72,7 @@ public class MainActivity extends Activity {
 
                 if(myAIDLService == null)
                 {
-                    Toast.makeText(MainActivity.this,"error",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CheckActivity.this,"error",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -103,7 +91,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 if(myAIDLService == null)
                 {
-                    Toast.makeText(MainActivity.this,"error",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CheckActivity.this,"error",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 try {

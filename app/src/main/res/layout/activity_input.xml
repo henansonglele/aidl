@@ -3,76 +3,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:text="填空题"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        />
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:text="判断题"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        />
-    <Button
-        android:id="@+id/btn3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:text="选择题"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        />
-
-    <Button
-        android:id="@+id/bind_service"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="绑定服务"
-        android:visibility="gone"
-        />
-
-    <Button
-        android:id="@+id/unbind_service"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="解绑服务"
-        android:visibility="gone"
-        />
-    <Button
-        android:id="@+id/add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="自加++"
-        android:visibility="gone"
-        />
-    <Button
-        android:id="@+id/get_user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="getUserName" />
-
-
     <TextView
-        android:id="@+id/tv_data"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
-        android:text="show"
-        android:visibility="gone"
-
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:text="10+20 = ?"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         />
-
+    <TextView
+        android:id="@+id/input_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:text="10+20 = ?"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/input_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:hint="请输入你的答案然后提交"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:inputType="number"
+        />
+    <Button
+        android:id="@+id/input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:text="提交"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        />
+    <Button
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:text="下一题"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        />
 </LinearLayout>
