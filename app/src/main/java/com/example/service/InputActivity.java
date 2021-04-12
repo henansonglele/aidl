@@ -16,6 +16,7 @@ public class InputActivity extends Activity {
     private TextView input_num,title;
     private EditText input_answer;
     int num1 ,num2;
+    boolean isSub = true;
     int count = 1,right = 0,error = 0;
 
     @Override
@@ -40,18 +41,7 @@ public class InputActivity extends Activity {
                 if(TextUtils.isEmpty(answer)){
                     Toast.makeText(InputActivity.this,"请输入答案在提交",Toast.LENGTH_SHORT).show();
                 }else{
-                    int result = Integer.parseInt(answer);
-                    if(result ==  num1-num2){
-                        Toast.makeText(InputActivity.this,"你真棒答对了",Toast.LENGTH_SHORT).show();
-                        next.setVisibility(View.VISIBLE);
-                        right++;
-                        updateTitle();
-                    }else{
-                        Toast.makeText(InputActivity.this,"请认真思考呦！",Toast.LENGTH_SHORT).show();
-                        resetInput();
-                        error++;
-                        updateTitle();
-                    }
+                   checkAnswer(Integer.parseInt(answer));
                 }
 
             }
@@ -73,18 +63,49 @@ public class InputActivity extends Activity {
         return randNumber;
     }
 
+    void checkAnswer(int result){
+        if(isSub){
+            if(result ==  (num1-num2)){
+                Toast.makeText(InputActivity.this,"你真棒答对了",Toast.LENGTH_SHORT).show();
+                //next.setVisibility(View.VISIBLE);
+                right++;
+                updateTitle();
+                autoNext();
+            }else{
+                Toast.makeText(InputActivity.this,"请认真思考呦！",Toast.LENGTH_SHORT).show();
+                resetInput();
+                error++;
+                updateTitle();
+            }
+
+        }else{
+            if(result ==  (num1+num2)){
+                Toast.makeText(InputActivity.this,"你真棒答对了",Toast.LENGTH_SHORT).show();
+                //next.setVisibility(View.VISIBLE);
+                autoNext();
+                right++;
+                updateTitle();
+            }else{
+                Toast.makeText(InputActivity.this,"请认真思考呦！",Toast.LENGTH_SHORT).show();
+                resetInput();
+                error++;
+                updateTitle();
+            }
+        }
+    }
     void updateRandomUI(){
         AnswerBean answerBean;
-        if(count%2==0){
+        isSub = (count%2==0);
+        if(isSub){
             num1 = getRandomNum(8,20);
             num2 = getRandomNum(0,num1);
             input_num.setText(num1 +" - " +num2 +" = ?");
-            answerBean = new AnswerBean(num1,num2,num1-num2,false);
+            //answerBean = new AnswerBean(num1,num2,num1-num2,false);
         }else{
             num1 = getRandomNum(0,20);
             num2 = getRandomNum(0,20-num1);
             input_num.setText(num1 +" + " +num2 +" = ?");
-            answerBean = new AnswerBean(num1,num2,num1=num2,true);
+            //answerBean = new AnswerBean(num1,num2,num1=num2,true);
         }
         next.setVisibility(View.GONE);
     }
@@ -95,14 +116,19 @@ public class InputActivity extends Activity {
         title.setText("总共"+count+"道题，"+"答对" +right +"道题。");
     }
 
+    void autoNext(){
+        count++;
+        resetInput();
+        updateRandomUI();
+    }
     class AnswerBean{
         int num1,num2,answer;
         boolean isAdd;
         AnswerBean(int num1,int num2,int answer,boolean isAdd){
-            this.num1 = num1;
-            this.num2 = num2;
-            this.answer = answer;
-            this.isAdd = isAdd;
+            //this.num1 = num1;
+            //this.num2 = num2;
+            //this.answer = answer;
+            //this.isAdd = isAdd;
 
         }
 
